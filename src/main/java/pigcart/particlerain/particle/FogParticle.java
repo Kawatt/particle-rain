@@ -66,7 +66,7 @@ public class FogParticle extends WeatherParticle {
         //TODO: have fog face the camera position instead of copying its rotation
         Quaternionf quaternionf = new Quaternionf();
         quaternionf.rotateTo((float) this.x, (float) this.y, (float) this.z, (float) camera.getPosition().x, (float) camera.getPosition().y, (float) camera.getPosition().z);
-        this.renderRotatedQuad(vertexConsumer, camera, quaternionf, f);
+        //this.renderRotatedQuad(vertexConsumer, camera, quaternionf, f);
     }
 
     @Override
