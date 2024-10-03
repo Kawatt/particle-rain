@@ -21,7 +21,6 @@ import pigcart.particlerain.ParticleRainClient;
 
 public class PetalParticle extends WeatherParticle {
 
-    //float amountToRotateBy;
     private float rollSpeed;
     private float yawSpeed;
     private final float particleRandom;
@@ -35,12 +34,12 @@ public class PetalParticle extends WeatherParticle {
 
     protected PetalParticle(ClientLevel level, double x, double y, double z, SpriteSet provider) {
         super(level, x, y, z, ParticleRainClient.config.petalGravity, provider);
-        this.setSize(0.1F, 0.1F);
 
         this.xd = level.getRandom().nextFloat()/ParticleRainClient.config.petalWindDampening;
         this.zd = level.getRandom().nextFloat()/ParticleRainClient.config.petalWindDampening;
 
         this.groundLifetime = ParticleRainClient.config.petalGroundLifetime;
+        this.quadSize = ParticleRainClient.config.size.petalSize;
 
         this.particleRandom = this.random.nextFloat();
         this.rotAcceleration = (float)Math.toRadians(this.random.nextBoolean() ? -ParticleRainClient.config.petalRotationAmount : ParticleRainClient.config.petalRotationAmount);
@@ -65,7 +64,7 @@ public class PetalParticle extends WeatherParticle {
             this.groundLifetime--;
 
             this.oRoll = this.roll;
-            this.roll = Mth.HALF_PI /*+ Mth.HALF_PI/8*/;
+            this.roll = Mth.HALF_PI;
             this.oYaw = this.yaw;
             this.yaw = 0;
         }

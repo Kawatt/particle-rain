@@ -53,10 +53,11 @@ public class ModConfig implements ConfigData {
     public static class ParticleSizes {
         public float rainDropSize = 0.5F;
         public float rainSheetSize = 2F;
-        public float snowFlakeSize = 1F;
+        public float snowFlakeSize = 0.1F;
         public float snowSheetSize = 2F;
         public float dustMoteSize = 0.1F;
         public float dustSheetSize = 1.5F;
         public float fogSize = 8F;
+        public float petalSize = 0.1F;
     }
 }
