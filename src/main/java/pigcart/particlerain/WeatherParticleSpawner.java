@@ -40,10 +40,15 @@ public final class WeatherParticleSpawner {
         if (biome.value().hasPrecipitation()) {
             if (precipitation == Precipitation.RAIN) {
                 if (ParticleRainClient.config.doRainParticles) {
-                    if (y < Minecraft.getInstance().cameraEntity.yo + ( 4 * (ParticleRainClient.config.particleRadius / 5)) && level.random.nextBoolean()) {
-                        level.addParticle(ParticleRainClient.RAIN_SHEET, x, y, z, 0, 0, 0);
-                    } else {
-                        level.addParticle(ParticleRainClient.RAIN_DROP, x, y, z, 0, 0, 0);
+                    if (ParticleRainClient.config.doPetalParticles && printBiome(biome).contains("cherry")) {
+                        level.addParticle(ParticleRainClient.PETAL, x, y, z, 0, 0, 0);
+                    }
+                    else {
+                        if (y < Minecraft.getInstance().cameraEntity.yo + ( 4 * (ParticleRainClient.config.particleRadius / 5)) && level.random.nextBoolean()) {
+                            level.addParticle(ParticleRainClient.RAIN_SHEET, x, y, z, 0, 0, 0);
+                        } else {
+                            level.addParticle(ParticleRainClient.RAIN_DROP, x, y, z, 0, 0, 0);
+                        }
                     }
                 }
             } else if (precipitation == Precipitation.SNOW) {

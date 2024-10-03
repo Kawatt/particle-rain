@@ -14,11 +14,16 @@ public class ModConfig implements ConfigData {
     public float snowFlakeGravity = 0.1F;
     public float snowRotationAmount = 0.03F;
     public float snowWindDampening = 1.5F;
+    public float petalGravity = 0.05F;
+    public float petalRotationAmount = 1F;
+    public float petalWindDampening = 1.5F;
+    public int petalGroundLifetime = 400;
     public float desertDustGravity = 0.2F;
     public boolean doRainParticles = true;
     public boolean doSnowParticles = true;
     public boolean doSandParticles = true;
     public boolean doShrubParticles = true;
+    public boolean doPetalParticles = true;
     public boolean renderVanillaWeather = false;
     public boolean doExperimentalFog = false;
     public boolean alwaysRaining = false;

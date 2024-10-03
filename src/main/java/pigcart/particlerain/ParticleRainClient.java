@@ -5,6 +5,7 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -30,6 +31,7 @@ public class ParticleRainClient implements ClientModInitializer {
     public static SimpleParticleType DUST_SHEET;
     public static SimpleParticleType FOG;
     public static SimpleParticleType DEAD_BUSH;
+    public static SimpleParticleType PETAL;
 
     public static SoundEvent WEATHER_SNOW;
     public static SoundEvent WEATHER_SNOW_ABOVE;
@@ -50,6 +52,7 @@ public class ParticleRainClient implements ClientModInitializer {
         DUST_SHEET = Registry.register(BuiltInRegistries.PARTICLE_TYPE, new ResourceLocation(MOD_ID, "dust_sheet"), FabricParticleTypes.simple(true));
         DEAD_BUSH = Registry.register(BuiltInRegistries.PARTICLE_TYPE, new ResourceLocation(MOD_ID, "dead_bush"), FabricParticleTypes.simple(true));
         FOG = Registry.register(BuiltInRegistries.PARTICLE_TYPE, new ResourceLocation(MOD_ID, "fog"), FabricParticleTypes.simple(true));
+        PETAL = Registry.register(BuiltInRegistries.PARTICLE_TYPE, new ResourceLocation(MOD_ID, "cherry_leaves"), FabricParticleTypes.simple(true));
 
         WEATHER_SNOW = createSoundEvent("weather.snow");
         WEATHER_SNOW_ABOVE = createSoundEvent("weather.snow.above");
@@ -64,6 +67,7 @@ public class ParticleRainClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(DUST_SHEET, DustSheetParticle.DefaultFactory::new);
         ParticleFactoryRegistry.getInstance().register(DEAD_BUSH, DeadBushParticle.DefaultFactory::new);
         ParticleFactoryRegistry.getInstance().register(FOG, FogParticle.DefaultFactory::new);
+        ParticleFactoryRegistry.getInstance().register(PETAL, PetalParticle.DefaultFactory::new);
 
         AutoConfig.register(ModConfig.class, JanksonConfigSerializer::new);
         config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
