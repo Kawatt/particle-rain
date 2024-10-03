@@ -10,6 +10,7 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biome.Precipitation;
 import net.minecraft.world.level.biome.Biomes;
@@ -82,7 +83,7 @@ public final class WeatherParticleSpawner {
     }
 
     public static void update(ClientLevel level, Entity entity, float partialTicks) {
-        if (level.isRaining() || ParticleRainClient.config.alwaysRaining) {
+        if (level.isRaining() || ParticleRainClient.config.alwaysRaining || level.dimension() == Level.END) {
             int density;
             if (level.isThundering())
                 if (ParticleRainClient.config.alwaysRaining) {

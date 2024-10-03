@@ -46,4 +46,17 @@ public class ModConfig implements ConfigData {
         public float mesaGreen = 0.4F;
         public float mesaBlue = 0.0F;
     }
+
+    @ConfigEntry.Gui.CollapsibleObject
+    public ParticleSizes size = new ParticleSizes();
+
+    public static class ParticleSizes {
+        public float rainDropSize = 0.5F;
+        public float rainSheetSize = 2F;
+        public float snowFlakeSize = 1F;
+        public float snowSheetSize = 2F;
+        public float dustMoteSize = 0.1F;
+        public float dustSheetSize = 1.5F;
+        public float fogSize = 8F;
+    }
 }
